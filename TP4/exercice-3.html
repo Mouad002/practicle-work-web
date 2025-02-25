@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #btn {
+        color: white;
+        background-color: rgb(87, 87, 255);
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>Caluculateur d'IMC</h1>
+    <table>
+        <tr>
+            <td><label>poids (kg):</label></td>
+            <td><input type="text" id="poids"></td>
+        </tr>
+        <tr>
+            <td><label>Taille (m):</label></td>
+            <td><input type="text" id="taille"></td>
+        </tr>
+        <tr>
+            <td><input id="btn" type="button" value="calculer" onclick="calculer()"></td>
+            <td></td>
+        </tr>
+    </table>
+    <p id="feedback"></p>
+    <script>
+        let poids = document.getElementById('poids');
+        let taille = document.getElementById('taille');
+        let p = document.getElementById('feedback');
+        function calculer() {
+            let result = parseFloat(poids.value) / parseFloat(taille.value) * parseFloat(taille.value);
+            if(result < 18.5 ) {
+                p.innerText = "insuffisance pondre (maigreur)";
+            } else if(result >= 18.5 && result < 25) {
+                p.innerText = "corpulence normale";
+            } else if(result >= 25 && result < 30) {
+                p.innerText = "surpoids";
+            } else if(result >= 30 && result < 35) {
+                p.innerText = "obesite moderee";
+            } else if(result >= 35 && result < 40) {
+                p.innerText = "obesite severe";
+            } else {
+                p.innerText = "obesite orbide ou massive";
+            }
+
+        }
+    </script>
+</body>
+</html>
